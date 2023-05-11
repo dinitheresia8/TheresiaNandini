@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>E-Groceries</title>
+        <link rel="stylesheet" href="index.css">
+
+        <style>
+            @media only screen and (max-width :600px){
+                .container{
+                    flex-direction: column;
+                }
+                .logo{
+                    text-align: center;
+                    margin-bottom: 15px;
+                }
+                .listmenu{
+                    flex-direction: column;
+                    width:100%;
+                }
+                .main-form{
+                    flex-direction: column;
+                    width:100%;
+                }
+                .element{
+                    width:95%;
+                }
+                .kotak{
+                    flex-direction: column;
+                    width:100%;
+                }
+                .comment{
+                    width:80%
+                }
+                .comment1{
+                    width:80%
+                }
+                .packagesicon{
+                    width:30%;
+                }
+            }
+    
+        </style>
+    </head>
+    <body style="background-color: #f8f8f8;">
+        <div class="wadah">
+            <header>
+                <nav class="container">
+                    <div class="logo"><img src="./assets/moqups.png" style="width:90px;"></div>
+                    <div class="listmenu">
+                        <div class="menu"><a href="#home">Home</a></div>
+                        <div class="menu"><a href="#our-packages">Packages</a></div>
+                        <div class="menu"><a href="#call-us">Call Us</a></div>
+                    </div>
+                </nav>
+                <hr>
+            </header>
+            <main class="main">
+                <section id="home">
+                    <div class="banner">
+                        <h1>Top Rated E-Groceries Shop in Indonesia</h1>
+                        <h3>Every day with the best ingredients</h3>
+                    </div>
+                </section>
+                <section class="main-form">
+                    <div class="element">
+                        <img class="bannershow" src="./assets/1.jpg">
+                        <img class="bannershow" src="./assets/2.jpg">
+                        <img class="bannershow" src="./assets/3.jpg">
+                        <script>
+                            var slideIndex=1;
+                            showDivs(slideIndex);
+    
+                            function plusDivs(n){
+                                showDivs(slideIndex +=n);
+                            }
+                            function showDivs(n){
+                                var i;
+                                var x=document.getElementsByClassName("bannershow");
+                                if (n>x.length){slideIndex=1}
+                                if (n<1){slideIndex=x.length};
+                                for (i=0;i<x.length;i++){
+                                    x[i].style.display="none";
+                                }
+                                x[slideIndex-1].style.display="block";
+                            }
+                            setInterval(()=>{
+                                plusDivs(1);
+                            },1000)
+    
+                        </script>
+                        <br>
+                        <i>"setiap hari beli sayur buah yang fresh disini"</i>
+                        <div class="comment">
+                            <div class="circle"><img src="./assets/ikon.png" style="width:100%; height:100%;"></div>
+                            <div class="comment-text"><b>Florence Hughes</b><br><i>Ibu Rumah Tangga, 28</i></div>
+                        </div>
+                        <h5>OFFER INFORMATION</h5>
+                        <div class="comment">
+                            <div class="circle">1</div>
+                            <div class="comment-text">Join our membership to get double points every Tuesday</div>
+                        </div>
+                        <div class="comment">
+                            <div class="circle">2</div>
+                            <div class="comment-text">Free delivery for your first purchase minimum payment 300k</div>
+                        </div>
+                        <div class="comment">
+                            <div class="circle">3</div>
+                            <div class="comment-text">Get our special price only to you Midnight Shopper</div>                       
+                        </div>
+                    </div>
+                    <div class="element">
+                        <form name="contact-form"  class="form" onsubmit="return validateForm()">
+                            <h3>Contact Us</h3>
+                            <h4>Sales akan menghubungi anda 1x24 jam setelah data kami terima.</h4>
+                            <label>Your Name:</label>
+                            <input id="name" name="name" class="input">
+                            <label>Email Address:</label>
+                            <input id="email" email="email" class="input">
+                            <label>What are you interested in?</label>
+                            <select id="interested" interested="interested">
+                                <option>Ingredients and Seasonings</option>
+                                <option>Fresh Vegetables</option>
+                                <option>Fresh Fruits</option>
+                                <option>Milk and Dairy Products</option>
+                                <option>Meat and Chicken</option>
+                                <option>Fish and Seafood</option>
+                            </select>
+                            <input type="submit" class="button">
+
+                            <script>
+                                function validateForm(){
+                                    const name = document.forms["contact-form"]["name"].value;
+                                    const email = document.forms["contact-form"]["email"].value;
+                                    const interested = document.forms["contact-form"]["interested"].value;
+    
+                                    if (name==""){
+                                        alert ("Nama Tidak Boleh Kosong");
+                                        return false;
+                                    }else if(email==""){
+                                        alert ("Email Tidak Boleh Kosong");
+                                        return false;
+                                    }
+                                    
+                                    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                                    if(email.match(mailformat)){}
+                                    else{
+                                        alert("Format Email Salah");
+                                        return false;
+                                    }
+                                    return false;
+                                }
+                            </script>
+
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>            
+        <h1 style="text-align: center;padding: 1em;">Our Packages</h1>
+        <div class="wadah">
+            <section id="our-packages">
+                <div class="kotak">
+                    <div class="comment1">
+                        <img class="packagesicon" src="./assets/seasonings.png">
+                        <div class="comment-text">Ingredients and Seasonings</div>
+                    </div>
+                    <div class="comment1">
+                        <img class="packagesicon" src="./assets/veggie.jpg">
+                        <div class="comment-text">Fresh Vegetables</div>
+                    </div>
+                    <div class="comment1">
+                        <img class="packagesicon" src="./assets/fruit.jpg">
+                        <div class="comment-text">Fresh Fruits</div>
+                    </div>
+                </div>
+                <hr style="width:80px;">
+                <div class="kotak">
+                    <div class="comment1">
+                        <img class="packagesicon" src="./assets/milk.png">
+                        <div class="comment-text">Milk and Dairy Products</div>
+                    </div>
+                    <div class="comment1">
+                        <img class="packagesicon" src="./assets/meat.jpg">
+                        <div class="comment-text">Meat and Chicken</div>
+                    </div>
+                    <div class="comment1">
+                        <img class="packagesicon" src="./assets/fish.png">
+                        <div class="comment-text">Fish and Seafood</div>
+                    </div>
+                </div>
+            </section>
+        </div>  
+        <h1 style="text-align: center">Call Us</h1>
+        <div class="wadah">
+            <section id="call-us">
+                <h4>Help Center</h4>
+                <h4>Terms and Condition</h4>
+                <h4>Privacy Policy</h4>
+                <h4>Follow Us</h4>
+                <div class="medsos">
+                    <a href="http://www.instagram.com"><img class="medsosIcon" src="./assets/Instagram-Icon.png"></a>
+                    <a href="http://www.facebook.com"><img class="medsosIcon" src="./assets/facebook-logo.png"></a>
+                    <a href="http://www.youtube.com"><img class="medsosIcon" src="./assets/youtube.png"></a>
+                </div>
+            </section>  
+        </div>
+    </body>
+</html>
